@@ -13,19 +13,23 @@ String.prototype.wtf = function(){
 // scramble - This method must return the contents of the 
 // string in the current context in a mixed up order.
 String.prototype.scramble = function(){
-  string.split("", this.length-1);
-  for (var i = 0; i < this.length; i++){
-    var random = parseInt(Math.random() * i);
-    var temp = this[--i];
-    this[i] = this[random];
-    this[random] = temp;
-    return temp.join('');
+  var result = [];
+  var ary = this.split("");
+  //'split' function returns an ARRAY of characters
+  var l = ary.length;
+  for (var i = 0;i < l;i++) {
+    var random = Math.floor(Math.random()*ary.length);
+    result.push(ary[random]);
+    //pushes character at ary[random index] into results array.
+    ary.splice(random,1);
+    //above removes the 'pushed' character.
   }
-//https://gist.github.com/oieioi/5897875
-//http://stackoverflow.com/questions/3079385/str-shuffle-equivalent-in-javascript
-//this works-->http://codegolf.stackexchange.com/questions/3293/how-to-randomize-letters-in-a-word
+  return result.join("");
+  //joins into a string
 };
-//Test-->expect "this"!= "shit"
+//Source-->https://gist.github.com/oieioi/5897875
+
+//Test-->expect "this"!= "this"
 
 // trim - This method must return the contents of the string 
 // with no leading or trailing spaces.
