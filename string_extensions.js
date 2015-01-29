@@ -2,16 +2,10 @@ var chai = require('chai');
 var expect = chai.expect;
 var should = chai.should();
 
-
-// wtf - This method must return the value 'wtf' for any given
-// context.
 String.prototype.wtf = function(){
   return "wtf";
 };
-//Test-->console.log(("hello").wtf());
 
-// scramble - This method must return the contents of the 
-// string in the current context in a mixed up order.
 String.prototype.scramble = function(){
   var result = [];
   var ary = this.split("");
@@ -29,12 +23,8 @@ String.prototype.scramble = function(){
 };
 //Source-->https://gist.github.com/oieioi/5897875
 
-//Test-->expect "this"!= "this"
-
-// trim - This method must return the contents of the string 
-// with no leading or trailing spaces.
 String.prototype.trim = function(){
   return this.replace(/^\s+|\s+$/g,'');
-  //http://stackoverflow.com/questions/17769753/javascript-remove-leading-and-trailing-spaces
+//Source-->http://stackoverflow.com/questions/17769753/javascript-remove-leading-and-trailing-spaces
 };
-// Test-->console.log(" hello ".trim());
+

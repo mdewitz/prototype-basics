@@ -17,15 +17,11 @@ Array.prototype.toString = function(){
   // }
 };
 
-// forEach - This method must take a function as an argument and
-// call that function against each element in the Array.
-
 Array.prototype.forEach = function(argFunc){
   for (var i = 0; i<this.length; i++){
     return argFunc(this[i]);
   }
 };
-//Test-->console.log([1, 2, 3, 4, 5].forEach(console.log));
 
 // EXTRA - Take your array functions that you wrote in ArrayFun 
 // and add them to the Array.prototype.
